@@ -1,0 +1,17 @@
+:root {
+  --vudjit-color: #CA0909;
+  --success-color: #CA0909;
+
+  --primary-button-bg: #CA0909;
+  --primary-button-fg: #ffffff;
+  --primary-button-hover-bg: #D70A0A;
+  --primary-button-hover-fg: #ffffff;
+
+  --secondary-button-bg: #333333;
+  --secondary-button-fg: #ffffff;
+  --secondary-button-hover-bg: #444444;
+  --secondary-button-hover-fg: #ffffff;
+
+  --navbar-active-bg: #CA0909;
+  --navbar-active-fg: #ffffff;
+}

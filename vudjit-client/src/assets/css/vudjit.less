@@ -1,0 +1,92 @@
+html, body { 
+  height: 100%;  
+  font-family: 'SF Pro Text' !important;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'SF Pro Display';
+  letter-spacing: -.005em;
+  font-weight: 600;
+}
+body, #wrapper { min-height: 100vh; }
+
+#acct-add-container {
+  #acct-add {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+    background-color: var(--vudjit-color);
+    color: #fff;
+  }
+}
+.valign-middle {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+#footer { 
+  padding: 20px; 
+  background-color: var(--vudjit-color); 
+  color: #fff;
+}
+#login {
+  .logo {
+    max-width: 200px;
+    margin-bottom: 15px;
+  }
+}
+#primary-nav {
+  .logo {
+    max-width: 90px;
+  }
+  &.bg-light {
+    background-color: transparent !important;
+  }
+  .nav-item {
+    margin: 0 10px 0 10px;
+    &.active {
+      background-color: var(--navbar-active-bg) !important;
+      a { color: var(--navbar-active-fg) !important; }
+    }
+  }
+}
+/* Bootstrap */
+.btn-success {
+  background-color: var(--success-color) !important;
+  border-color: var(--success-color) !important;
+}
+.btn-primary {
+  background-color: var(--primary-button-bg) !important;
+  border-color: var(--primary-button-bg) !important;
+  color: var(--primary-button-fg) !important;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--primary-button-hover-bg) !important;
+  border-color: var(--primary-button-hover-bg) !important;
+  color: var(--primary-button-hover-fg) !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-button-bg) !important;
+  border-color: var(--secondary-button-bg) !important;
+  color: var(--secondary-button-fg) !important;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+  background-color: var(--secondary-button-hover-bg) !important;
+  border-color: var(--secondary-button-hover-bg) !important;
+  color: var(--secondary-button-hover-fg) !important;
+}
+
+
+.bg-black {
+  background-color: rgba(0,0,0,0.35);
+}
