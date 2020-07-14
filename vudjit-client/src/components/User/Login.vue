@@ -44,15 +44,17 @@
           identifier: this.form.email,
           password: this.form.password,
         }).then(response => {
+          // Set total accounts
+          var total_accts = response.data.user.total_accts;
 
           // Store token and set store data
           this.$store.commit('set_logged_in', true);
-
-          // Set localStorage data for the user attributes
-          var total_accts = response.data.user.total_accts;
-          localStorage.setItem('jwt', response.data.jwt);
+          this.$store.commit('set_jwt_token', response.data.jwt);
+          this.$store.commit('set_total_accts', total_accts);
+          console.log(total_accts);
 
           if (total_accts == 0) {
+            this.$store.commit('set_acct_setup', true);
             this.$router.push('/accounts/add');
           }
           else {
@@ -67,7 +69,7 @@
       }
     },
     created() {
-      if (this.$store.getters._logged_in == 'true') {
+      if (this.$store.getters._logged_in == true) {
         this.$router.push("/");
       }
     }

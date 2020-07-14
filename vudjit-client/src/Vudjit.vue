@@ -1,6 +1,6 @@
 <template>
   <div id="vudjit">
-    <div id="wrapper" class="d-flex flex-column" v-bind:class="{ 'bg-black': ($store.getters.is_account_setup == 'true') }">
+    <div id="wrapper" class="d-flex flex-column" v-bind:class="{ 'bg-black': ($store.getters.is_account_setup == true) }">
       <Navigation />
         <main class="container-fluid flex-fill" v-bind:class="{ 'valign-middle' : ($route.meta.valign == 'middle') }">
           <router-view/>
@@ -22,19 +22,7 @@ export default {
     Footer
   },
   created() {
-    if (!this.$store.getters.get_jwt) {
-      this.$router.push('login');
-    }
-    else {
-      this.$store.commit('set_logged_in', 'true');
-    }
-
-    if (this.$store.getters.is_account_setup == 'true') {
-      //this.$router.push('/accounts/add');
-    }
-  },
-  mounted() {
-    console.log(this.$store.getters.get_jwt);
+    console.log(this.$store.getters.is_account_setup);
   }
 }
 </script>
