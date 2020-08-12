@@ -79,13 +79,13 @@ Vue.use(VueRouter)
     }
   },
   {
-    path: '/accounts',
-    name: 'My Accounts',
+    path: '/budgets',
+    name: 'My Budgets',
     is_nav: true,
     component: Accounts,
     meta: {
       valign: 'middle',
-      title: 'Accounts - Vudjit',
+      title: 'Budgets - Vudjit',
       requiresAuth: true,
       metaTags: [
         {
@@ -100,7 +100,7 @@ Vue.use(VueRouter)
     },
   },
   {
-    path: '/accounts/add',
+    path: '/budgets/add',
     name: 'Add Account',
     is_nav: false,
     component: AddAcct,

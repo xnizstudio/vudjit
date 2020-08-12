@@ -14,7 +14,7 @@ export default {
     else if (this.$store.getters.get_total_accts == 0 || this.$store.getters.is_account_setup == true) {
       this.$store.commit('set_total_accts', 0);
       this.$store.commit('set_acct_setup', true);
-      this.$router.push('/accounts/add');
+      this.$router.push('/budgets/add');
     }
 
   },

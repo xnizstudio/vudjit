@@ -8,7 +8,8 @@ const vuexLocal = new VuexPersistence({
     logged_in: state.logged_in,
     total_accts: state.total_accts,
     jwt_token: state.jwt_token,
-    is_account_setup: state.is_account_setup
+    is_account_setup: state.is_account_setup,
+    setup_step: state.setup_step
   }),
 })
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
     total_accts: 0,
     jwt_token: '',
     is_account_setup: false,
+    setup_step: 0
   },
 
   mutations: {
@@ -35,6 +37,9 @@ export default new Vuex.Store({
     },
     set_acct_setup(state, is_setup) {
       state.is_account_setup = is_setup;
+    },
+    set_setup_step(state, step) {
+      state.setup_step = step;
     }
   },
 
@@ -47,6 +52,9 @@ export default new Vuex.Store({
     },
     get_total_accts: state => {
       return state.total_accts;
+    },
+    get_setup_step: state => {
+      return state.setup_step;
     },
     is_account_setup: state => {
       return state.is_account_setup;

@@ -1,28 +1,33 @@
 <template>
-  <div id="login">
-    <img class="logo" src="@/assets/images/logo.png"/>
-    <b-form @submit="login_user" @submit.prevent>
-        <b-form-input
-          id="email"
-          class="mb-2"
-          v-model="form.email"
-          type="email"
-          required
-          placeholder="Email*">
-        </b-form-input>
-        
-        <b-form-input
-          id="auth-password"
-          class="mb-2"
-          v-model="form.password"
-          type="password"
-          required
-          placeholder="Password*">
-        </b-form-input>
+  <main class="container-fluid flex-fill" v-bind:style="{ backgroundColor: background_color, color: foreground_color }" v-bind:class="{ 'valign-middle' : ($route.meta.valign == 'middle') }">
+  <div id="wrapper" class="d-flex flex-column">
+    <h2>Vudjit.app</h2>
+    <small class="mb-4 d-block">Your easy to use and daily budgeting app...</small>
+    <div id="login">
+      <b-form @submit="login_user" @submit.prevent>
+          <b-form-input
+            id="email"
+            class="mb-2"
+            v-model="form.email"
+            type="email"
+            required
+            placeholder="Email*">
+          </b-form-input>
+          
+          <b-form-input
+            id="auth-password"
+            class="mb-2"
+            v-model="form.password"
+            type="password"
+            required
+            placeholder="Password*">
+          </b-form-input>
 
-      <b-button type="submit" variant="primary">Log Me In</b-button>
-    </b-form>
+        <b-button type="submit" variant="primary" class="mt-2">Log Me In</b-button>
+      </b-form>
+    </div>
   </div>
+  </main>
 </template>
 
 <script>
@@ -30,6 +35,8 @@
   export default {
     data() {
       return {
+        background_color: '#111111',
+        foreground_color: '#ffffff',
         form: {
           email: '',
           password: '',
@@ -51,11 +58,11 @@
           this.$store.commit('set_logged_in', true);
           this.$store.commit('set_jwt_token', response.data.jwt);
           this.$store.commit('set_total_accts', total_accts);
-          console.log(total_accts);
 
-          if (total_accts == 0) {
+          if (total_accts == null || total_accts == 0) {
+            this.$store.commit('set_setup_step', 1);
             this.$store.commit('set_acct_setup', true);
-            this.$router.push('/accounts/add');
+            this.$router.push('/budgets/add');
           }
           else {
             this.$router.push('/');
